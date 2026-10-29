@@ -26,3 +26,7 @@ Browser regression passed: emergency meeting → skip vote → confirmed vote �
 ## Player navigation separation
 
 Removed host navigation from player entry, join and the game back button. Solo demo launch is now a host-URL action. Production build and utility tests passed; browser checks of `/` and `/join` found no host/sidebar links. Direct `/host` remains the host entry URL. Deployment and game-night instructions are in `DEPLOY-AND-PLAY.md`.
+
+## Five-session playthrough
+
+See [MULTIPLAYER-TEST.md](MULTIPLAYER-TEST.md) for four complete normal-room rounds, seven simultaneous browser tabs, win conditions, meetings, audio invocation, reconnect and privacy checks. A ghost-task-button issue was found and fixed, with a private waiting flag and regression test. The suite now contains 26 Rust tests plus 6 frontend utility tests. The frontend build and isolated HTTP smoke test pass.

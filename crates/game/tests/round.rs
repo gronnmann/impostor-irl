@@ -1053,3 +1053,46 @@ fn activity_budget_assigns_distinct_stations_and_counts_only_assigned_work() {
     g.stations.clear();
     assert!(g.start(&order, 7000).is_err());
 }
+
+#[test]
+fn ghost_waiting_state_is_private_and_cleared_by_meeting() {
+    let mut g = demo();
+    kill(&mut g, 1, 30000).unwrap();
+    let victim = g.players[1].id.clone();
+    let witness = g.players[2].id.clone();
+    let before = g.snapshot(Some(&victim), false, 30000, |_| true);
+    assert_eq!(before["me"]["waiting_for_meeting"], true);
+    let public = g.snapshot(Some(&witness), false, 30000, |_| true);
+    let hidden = public["players"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .find(|p| p["id"] == victim)
+        .unwrap();
+    assert!(hidden.get("waiting_for_meeting").is_none());
+    assert!(hidden.get("alive").is_none());
+    act(
+        &mut g,
+        2,
+        Command::Report {
+            target_id: victim.clone(),
+        },
+        31000,
+    )
+    .unwrap();
+    g.execute(None, &Command::EndMeeting, 32000, 97, false)
+        .unwrap();
+    let after = g.snapshot(Some(&victim), false, 32000, |_| true);
+    assert_eq!(after["me"]["waiting_for_meeting"], false);
+    assert_eq!(after["me"]["alive"], false);
+    act(
+        &mut g,
+        1,
+        Command::StartTask {
+            station_id: "wires".into(),
+            interaction: Interaction::Qr,
+        },
+        33000,
+    )
+    .unwrap();
+}

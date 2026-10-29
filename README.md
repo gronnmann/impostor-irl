@@ -159,10 +159,11 @@ npm run test:smoke
 cargo fmt --all -- --check
 ```
 
-Current checks cover **25 Rust tests** and **six frontend utility tests**. The isolated HTTP smoke test covers all seventeen activities, repeated stations, rejoining, privacy, voting and an **80-player / 12-impostor** round. Browser validation has exercised all seventeen real puzzles. Physical cameras and future hardware still need device testing.
+Current checks cover **26 Rust tests** and **six frontend utility tests**. The isolated HTTP smoke test covers all seventeen activities, repeated stations, rejoining, privacy, voting and an **80-player / 12-impostor** round. Browser validation has exercised all seventeen real puzzles. Physical cameras and future hardware still need device testing.
 
 - [Deploy and play](docs/DEPLOY-AND-PLAY.md) — Wi-Fi, HTTPS, printing and game-night walkthrough.
 - [Preview guide](docs/PREVIEW.md) — solo testing, rejoining and routes.
+- [Multiplayer playthrough](docs/MULTIPLAYER-TEST.md) — five live sessions across four complete rounds.
 - [Validation report](docs/VALIDATION.md) — checks and their limits.
 - [Architecture](ARCHITECTURE.md) · [API contract](IMPLEMENTATION-CONTRACT.md) · [Backend notes](BACKEND-NOTES.md).
 - [Artwork and fonts](docs/ASSETS.md) — provenance, prompts and bundled font licenses.

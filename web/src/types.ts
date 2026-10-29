@@ -8,7 +8,7 @@ export interface ActivitySession { id: string; task_id: string; station_id?: str
 export interface Feedback { id: string; at: number; target: string; kind: string; message: string }
 export interface Snapshot {
   game_id: string; room_code: string; phase: 'lobby' | 'playing' | 'meeting' | 'ended'; now: number; settings: Settings;
-  players: Player[]; me: null | { id: string; name: string; role: 'crew' | 'impostor' | null; alive: boolean; kill_ready_at: number };
+  players: Player[]; me: null | { id: string; name: string; role: 'crew' | 'impostor' | null; alive: boolean; waiting_for_meeting: boolean; kill_ready_at: number };
   stations: Station[]; available_activities?: Station[]; tasks: Task[]; active_task: ActivitySession | null;
   meeting: null | { reason: 'emergency' | 'body'; victim_id?: string; ends_at: number; voted_player_ids: string[]; votes?: Record<string, string | null> };
   last_meeting: null | { ejected_id: string | null; skipped: boolean; tally: Record<string, number> };

@@ -667,7 +667,7 @@ impl Game {
                 v
             })
             .collect();
-        let me=actor.and_then(|id|self.player(id).ok()).map(|p|json!({"id":p.id,"name":p.name,"role":p.role,"alive":p.alive,"kill_ready_at":p.kill_ready_at}));
+        let me=actor.and_then(|id|self.player(id).ok()).map(|p|json!({"id":p.id,"name":p.name,"role":p.role,"alive":p.alive,"waiting_for_meeting":p.body,"kill_ready_at":p.kill_ready_at}));
         let tasks: Vec<_> = self
             .tasks
             .iter()

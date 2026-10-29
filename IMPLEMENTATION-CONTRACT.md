@@ -123,3 +123,5 @@ Seed puzzle variation server-side. Hidden answers being in private activity chal
 ## Workspace ownership
 
 Backend agent owns root Cargo.toml/Cargo.lock, `crates/**`, and backend tests. Frontend/root agent owns `web/**`, assets, scripts and docs. Do not edit another instance's files. Backend can add `BACKEND-NOTES.md` with integration notes. No hardware code in this release.
+
+The private `me` snapshot includes `waiting_for_meeting: boolean`. It is true while a killed player still has an uncleared body. Task controls remain disabled until a meeting clears that state. It is not included in public roster entries.
