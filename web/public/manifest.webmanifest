@@ -1,0 +1,7 @@
+{
+  "name": "Impostor IRL", "short_name": "Impostor IRL",
+  "description": "Real people. Real spaces. Hidden roles.",
+  "start_url": "/", "display": "standalone", "background_color": "#F8FAFC",
+  "theme_color": "#0B132B",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

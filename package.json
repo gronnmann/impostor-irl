@@ -1,0 +1,12 @@
+{
+  "name": "impostor-irl-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/test.mjs",
+    "test:smoke": "node scripts/smoke.mjs"
+  }
+}

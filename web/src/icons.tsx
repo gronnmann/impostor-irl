@@ -1,0 +1,5 @@
+import type { Kind } from './types';
+export type ArtName = Kind | 'dashboard' | 'crew' | 'simulator' | 'emergency' | 'kill' | 'ghost' | 'shield' | 'victory';
+const art: Partial<Record<ArtName, number>> = { wires:0,code:1,signal:2,battery:3,memory:4,anomaly:5,circuits:6,password:7,dashboard:8,crew:9,simulator:10,emergency:11,kill:12,ghost:13,shield:14,victory:15 };
+export function MissionIcon({ name, size = 48 }: { name: ArtName; size?: number }) { const extra = ['mixing','transfer','fault','frequency','breaker','timing','route_power','switches','cargo'].indexOf(name); const index = extra >= 0 ? extra : art[name]!; const grid = extra >= 0 ? 3 : 4; return <span className={`game-art art-${name}`} role="img" aria-label={`${name} mission icon`} style={{ width:size,height:size,backgroundImage:extra >= 0 ? "url('/assets/additional-icons.png')" : undefined,backgroundSize:`${grid*100}% ${grid*100}%`,backgroundPosition:`${index%grid/(grid-1)*100}% ${Math.floor(index/grid)/(grid-1)*100}%` }}/>; }
+export function ActivityIcon({ kind, size = 26 }: { kind: Kind; size?: number }) { return <MissionIcon name={kind} size={size}/>; }
